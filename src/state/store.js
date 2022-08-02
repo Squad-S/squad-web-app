@@ -1,5 +1,5 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
-import { counterReducer } from "./Toggle";
+import { counterReducer } from "./counter";
 
 const middlewares = [];
 
