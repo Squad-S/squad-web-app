@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import logo from "../../utilities/logo/logo.png";
 import "../../styles/login.css";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchUserData } from "../../state/loginState/userLoginSlice";
 
 const LogIn = () => {
+  const { isLoading, userLogin, error } = useSelector(
+    (state) => state.userLogin
+  );
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchUserData());
+  }, []);
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
