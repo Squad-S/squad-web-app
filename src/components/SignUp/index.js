@@ -1,13 +1,13 @@
 import { Button, Container, Grid, Paper } from "@mui/material";
 import React, { useState } from "react";
-import { Form } from "../form/Form";
+import { Form } from "..";
 import CheckIcon from "@mui/icons-material/Check";
 import { useDispatch } from "react-redux";
 import { createSignUp } from "../../state/signUp/signUpSlice";
 const signUpImg = "/asset/img/signUp-img.png";
 const logo = "/asset/img/logo.png";
 
-const Signup = () => {
+const SignUp = () => {
   const [email, setEmail] = useState(null);
   const [name, setName] = useState(null);
   const [password, setPassword] = useState(null);
@@ -123,4 +123,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default SignUp;

@@ -1,10 +1,15 @@
 import React from "react";
+import { Layout } from "../../components";
 
 const Home = () => {
   return (
-    <div>
-      <h1 className="my-6 text-center text-3xl font-bold">Welcome to React</h1>
-    </div>
+    <>
+      <Layout>
+        <h1 className="my-6 text-center text-3xl font-bold">
+          Welcome to React
+        </h1>
+      </Layout>
+    </>
   );
 };
 

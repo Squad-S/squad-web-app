@@ -1,7 +1,7 @@
 import { Button, Container, Grid, IconButton, InputBase } from "@mui/material";
 import React, { useState } from "react";
 import { inviteMemberProjectSlice } from "../../state/inviteMemberProject/inviteMemberProjectSlice";
-import { Form } from "../form/Form";
+import { Form } from "..";
 import SearchIcon from "@mui/icons-material/Search";
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
