@@ -1,10 +1,10 @@
 import { Button, Container, Grid, IconButton, InputBase } from "@mui/material";
 import React, { useState } from "react";
-import invaiteImg from "../../img/invaiteImg.jpg";
+import { inviteMemberPrjectSlice } from "../../state/inviteMemberProject/inviteMemberProjectSlice";
 import Form from "../form/Form";
 import SearchIcon from "@mui/icons-material/Search";
 import { NavLink } from "react-router-dom";
-
+import { useDispatch } from "react-redux";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -12,29 +12,16 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-
+const inviteImg = "/asset/img/inviteImg.jpg";
 const rows = [];
 const InvaiteMemberProject = () => {
   const [email, setEmail] = useState(null);
-
+  const dispatch = useDispatch();
   const handelForm = (e) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("Email", email);
-
-    fetch("https://sq-project-service.herokuapp.com/project/invite", {
-      method: "POST",
-      body: formData,
-    })
-      .then((response) => response.json())
-      .then((result) => {
-        if (result.insertedId) {
-          console.log("singUp successfully");
-        }
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+    dispatch(inviteMemberPrjectSlice(formData));
   };
   return (
     <Container className=" my-2">
@@ -49,7 +36,7 @@ const InvaiteMemberProject = () => {
             borderRadius: "5px",
           }}
         >
-          Invaite users
+          Invite users
         </button>
         <h1 style={{ marginLeft: "20px" }}>
           <b>....</b>
@@ -68,7 +55,7 @@ const InvaiteMemberProject = () => {
       >
         <Grid item xs={12} md={4}>
           <img
-            src={invaiteImg}
+            src={inviteImg}
             alt=""
             style={{ height: "300px", width: "90%", marginTop: "20px" }}
           />

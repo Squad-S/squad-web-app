@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import InvaiteMemberProject from "./components/invaite-member-project/InvaiteMemberProject";
-import Signup from "./components/signUp/Signup";
+import InviteMemberProject from "./components/invaite-member-project/InviteMemberProject";
+import SignUp from "./components/signUp/SignUp";
 
 import { Home } from "./pages";
 
@@ -9,8 +9,8 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/signup" element={<Signup />} />
-      <Route path="/project/invite" element={<InvaiteMemberProject />} />
+      <Route path="/signup" element={<SignUp />} />
+      <Route path="/project/invite" element={<InviteMemberProject />} />
     </Routes>
   );
 }

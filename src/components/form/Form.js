@@ -1,3 +1,10 @@
+// description
+// this is a form component
+// value, label, name, placeholder, type, onChange  are fom component props you can reuse this value
+// in your code
+// lavel is conditional
+// type ,value, name ,placeholder are daynamic
+
 import React from "react";
 
 const Form = ({ value, label, name, placeholder, type, onChange }) => (
@@ -6,7 +13,7 @@ const Form = ({ value, label, name, placeholder, type, onChange }) => (
       <label htmlFor="input-field" style={{ margin: "5px 0px 5px 10px" }}>
         {label}
       </label>
-    )}{" "}
+    )}
     <br />
     <input
       style={{

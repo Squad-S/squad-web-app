@@ -1,33 +1,26 @@
 import { Button, Container, Grid, Paper } from "@mui/material";
 import React, { useState } from "react";
-import logo from "../../img/logo.png";
-import signUpImg from "../../img/singUp-img.png";
 import Form from "../form/Form";
+import CheckIcon from "@mui/icons-material/Check";
+import { useDispatch } from "react-redux";
+import { createSignUp } from "../../state/signUp/signUpSlice";
+const signUpImg = "/asset/img/signUp-img.png";
+const logo = "/asset/img/logo.png";
 
 const Signup = () => {
   const [email, setEmail] = useState(null);
   const [name, setName] = useState(null);
   const [password, setPassword] = useState(null);
+  const dispatch = useDispatch();
   const handelForm = (e) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("worker-email", email);
     formData.append("full-name", name);
     formData.append("password", password);
-    fetch("https://sq-user-service.herokuapp.com/user/signup", {
-      method: "POST",
-      body: formData,
-    })
-      .then((response) => response.json())
-      .then((result) => {
-        if (result.insertedId) {
-          console.log("singUp successfully");
-        }
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+    dispatch(createSignUp(formData));
   };
+
   return (
     <Container className=" my-2">
       <div>
@@ -60,31 +53,19 @@ const Signup = () => {
           </h3>
           <section style={{ marginLeft: "15%" }}>
             <div style={{ display: "flex" }}>
-              <i
-                style={{ padding: "10px", color: "blue" }}
-                class="fa-solid fa-check"
-              />
+              <CheckIcon sx={{ color: "blue", marginTop: "5px" }} />
               <p style={{ padding: "5px" }}>cale agaile practice</p>
             </div>
             <div style={{ display: "flex" }}>
-              <i
-                style={{ padding: "10px", color: "blue" }}
-                class="fa-solid fa-check"
-              />
+              <CheckIcon sx={{ color: "blue", marginTop: "5px" }} />
               <p style={{ padding: "5px" }}>consolided workflows</p>
             </div>
             <div style={{ display: "flex" }}>
-              <i
-                style={{ padding: "10px", color: "blue" }}
-                class="fa-solid fa-check"
-              />
+              <CheckIcon sx={{ color: "blue", marginTop: "5px" }} />
               <p style={{ padding: "5px" }}>Expand visibility</p>
             </div>
             <div style={{ display: "flex" }}>
-              <i
-                style={{ padding: "10px", color: "blue" }}
-                class="fa-solid fa-check"
-              />
+              <CheckIcon sx={{ color: "blue", marginTop: "5px" }} />
               <p style={{ padding: "5px" }}>Plan, track, and release</p>
             </div>
           </section>
