@@ -9,7 +9,7 @@ import React from "react";
 //   }
 // const inputs = [{
 //     lavel: "Input lavel",
-//     isRequired: true or false, 
+//     isRequired: true or false,
 //     props: {
 //       id: "give a unique id for every input",
 //       placeholder: "Input's Placeholder",
@@ -35,10 +35,16 @@ import React from "react";
 //     button={button}
 // />
 
-export default function CreateBlock({ title, description, inputs, form, button }) {
+export default function CreateBlock({
+  title,
+  description,
+  inputs,
+  form,
+  button,
+}) {
   return (
     <div className="m-auto w-full max-w-xs pt-20">
-      <h1 className=" font-bold text-slate-900 text-3xl">{title}</h1>
+      <h1 className=" text-3xl font-bold text-slate-900">{title}</h1>
       <p className="py-3 text-slate-700">{description}</p>
       <form {...form}>
         {inputs.map((inp) => {
@@ -49,7 +55,6 @@ export default function CreateBlock({ title, description, inputs, form, button }
                 <sup className="text-red-600">{inp.isRequired ? "*" : ""}</sup>
               </label>
               <input
-                
                 {...inp.props}
                 className="focus:shadow-outline w-full appearance-none rounded border py-2 px-3 leading-tight text-gray-700 shadow focus:outline-none"
               />
