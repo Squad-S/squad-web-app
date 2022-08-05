@@ -4,7 +4,7 @@ export const inviteMemberPrject = createAsyncThunk(
   "project/invite",
   async (member, { rejectWithValue }) => {
     try {
-      const response = await publicPost("/user/signup", member);
+      const response = await publicPost("/project/invite", member);
       if (response) {
         return response.data;
       }
