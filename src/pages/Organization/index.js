@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import CreateBlock from "../../components/CreateBlock";
 import { createOrganization } from "../../state/CreateOrganization";
-import { Layout } from "../../components";
+import { Layout, CreateBlock } from "../../components";
+
 const Organization = () => {
-  const { data, status } = useSelector((state) => state.createOrganization);
   const dispatch = useDispatch();
+  const { data, status } = useSelector((state) => state.createOrganization);
   const [organizationName, setOrganizationName] = useState("");
+
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(createOrganization(organizationName));
