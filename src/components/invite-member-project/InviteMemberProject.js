@@ -1,7 +1,7 @@
 import { Button, Container, Grid, IconButton, InputBase } from "@mui/material";
 import React, { useState } from "react";
-import { inviteMemberPrjectSlice } from "../../state/inviteMemberProject/inviteMemberProjectSlice";
-import Form from "../form/Form";
+import { inviteMemberProjectSlice } from "../../state/inviteMemberProject/inviteMemberProjectSlice";
+import { Form } from "../form/Form";
 import SearchIcon from "@mui/icons-material/Search";
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -17,12 +17,13 @@ const rows = [];
 const InvaiteMemberProject = () => {
   const [email, setEmail] = useState(null);
   const dispatch = useDispatch();
-  const handelForm = (e) => {
+  const handleSubmtClicked = (e) => {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append("Email", email);
-    dispatch(inviteMemberPrjectSlice(formData));
+    if (email !== null) {
+      dispatch(inviteMemberProjectSlice({ email: email }));
+    }
   };
+
   return (
     <Container className=" my-2">
       <section style={{ display: "flex", margin: "15px 15px" }}>
@@ -99,7 +100,7 @@ const InvaiteMemberProject = () => {
             >
               Add your team and start creatting greate things together
             </p>
-            <form style={{ marginLeft: "10%" }} onSubmit={handelForm}>
+            <form style={{ marginLeft: "10%" }}>
               <Form
                 type="email"
                 placeholder="Email Address"
@@ -131,6 +132,7 @@ const InvaiteMemberProject = () => {
                   color: "white",
                 }}
                 type="submit"
+                onClick={handleSubmtClicked}
               >
                 Add team members
               </Button>

@@ -1,27 +1,20 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { publicPost } from "../../utilities/apiCaller";
 export const inviteMemberPrject = createAsyncThunk(
   "project/invite",
   async (member, { rejectWithValue }) => {
     try {
-      const response = await fetch(
-        "https://sq-project-service.herokuapp.com/project/invite",
-        {
-          method: "POST",
-          body: JSON.stringify(member),
-          header: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      const data = await response.json();
-      return data;
+      const response = await publicPost("/user/signup", member);
+      if (response) {
+        return response.data;
+      }
     } catch (err) {
-      return rejectWithValue("Opps there seems to be an error");
+      return rejectWithValue(err);
     }
   }
 );
 
-export const inviteMemberPrjectSlice = createSlice({
+export const inviteMemberProjectSlice = createSlice({
   name: "signup",
 
   reducers: {},
@@ -32,4 +25,4 @@ export const inviteMemberPrjectSlice = createSlice({
   },
 });
 
-export default inviteMemberPrjectSlice.reducer;
+export default inviteMemberProjectSlice.reducer;

@@ -7,7 +7,7 @@
 
 import React from "react";
 
-const Form = ({ value, label, name, placeholder, type, onChange }) => (
+export const Form = ({ value, label, name, placeholder, type, onChange }) => (
   <div className="form-group">
     {label && (
       <label htmlFor="input-field" style={{ margin: "5px 0px 5px 10px" }}>
@@ -32,5 +32,3 @@ const Form = ({ value, label, name, placeholder, type, onChange }) => (
     />
   </div>
 );
-
-export default Form;

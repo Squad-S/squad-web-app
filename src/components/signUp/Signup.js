@@ -1,6 +1,6 @@
 import { Button, Container, Grid, Paper } from "@mui/material";
 import React, { useState } from "react";
-import Form from "../form/Form";
+import { Form } from "../form/Form";
 import CheckIcon from "@mui/icons-material/Check";
 import { useDispatch } from "react-redux";
 import { createSignUp } from "../../state/signUp/signUpSlice";
@@ -12,15 +12,13 @@ const Signup = () => {
   const [name, setName] = useState(null);
   const [password, setPassword] = useState(null);
   const dispatch = useDispatch();
-  const handelForm = (e) => {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append("worker-email", email);
-    formData.append("full-name", name);
-    formData.append("password", password);
-    dispatch(createSignUp(formData));
-  };
 
+  const handleSubmtClicked = (e) => {
+    e.preventDefault();
+    if (email !== null && name !== null && password !== null) {
+      dispatch(createSignUp({ email: email, name: name, password: password }));
+    }
+  };
   return (
     <Container className=" my-2">
       <div>
@@ -81,7 +79,7 @@ const Signup = () => {
             >
               <b>Get Started</b>
             </h3>
-            <form style={{ marginLeft: "10%" }} onSubmit={handelForm}>
+            <form style={{ marginLeft: "10%" }}>
               <Form
                 type="email"
                 value={email}
@@ -113,6 +111,7 @@ const Signup = () => {
                   color: "white",
                 }}
                 type="submit"
+                onClick={handleSubmtClicked}
               >
                 Sign Up
               </Button>
