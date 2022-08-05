@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../Navber";
+import { Navbar } from "../";
 
 const Layout = ({ children }) => {
   const menuname = [
@@ -33,10 +33,10 @@ const Layout = ({ children }) => {
   };
 
   return (
-    <div>
+    <>
       <Navbar menuname={menuname} button={button} />
       <div>{children}</div>
-    </div>
+    </>
   );
 };
 

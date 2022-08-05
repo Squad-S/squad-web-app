@@ -3,6 +3,8 @@ import AppsIcon from "@mui/icons-material/Apps";
 import HelpIcon from "@mui/icons-material/Help";
 import AccountCircleSharpIcon from "@mui/icons-material/AccountCircleSharp";
 
+const Logo = "/assets/images/logo.png";
+
 //Example
 // const menuname = [
 //     {
@@ -33,7 +35,7 @@ import AccountCircleSharpIcon from "@mui/icons-material/AccountCircleSharp";
 //         props: {
 //         type: 'button'}
 //    }
-const Logo = "/assets/images/logo.png";
+
 const Navbar = ({ menuname, button }) => {
   return (
     <div>
