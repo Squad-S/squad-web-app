@@ -1,5 +1,5 @@
 import React from "react";
-import { Layout, SelectProject } from "../../components/";
+import { Layout, ListSelection } from "../../components/";
 
 const ProjectList = () => {
   const selectHeading = {
@@ -18,7 +18,7 @@ const ProjectList = () => {
   ];
   return (
     <Layout>
-      <SelectProject
+      <ListSelection
         selectRequirement={selectRequirement}
         selectHeading={selectHeading}
       />

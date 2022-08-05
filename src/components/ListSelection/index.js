@@ -1,6 +1,6 @@
 import BusinessIcon from "@mui/icons-material/Business";
 
-const SelectProject = ({ selectRequirement, selectHeading }) => {
+const ListSelection = ({ selectRequirement, selectHeading }) => {
   return (
     <div className="mt-16">
       <h2 className="mb-1 text-center text-2xl font-bold text-gray-700">
@@ -46,4 +46,4 @@ const SelectProject = ({ selectRequirement, selectHeading }) => {
   );
 };
 
-export default SelectProject;
+export default ListSelection;
