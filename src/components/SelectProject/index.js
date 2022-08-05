@@ -2,7 +2,7 @@ import BusinessIcon from "@mui/icons-material/Business";
 
 const SelectProject = ({ selectRequirement, selectHeading }) => {
   return (
-    <div className="mt-20">
+    <div className="mt-16">
       <h2 className="mb-1 text-center text-2xl font-bold text-gray-700">
         Select your {selectHeading.heading}
       </h2>
@@ -11,7 +11,7 @@ const SelectProject = ({ selectRequirement, selectHeading }) => {
       </h2>
       {selectRequirement.map((items) => {
         return (
-          <div className="ml-auto mr-auto flex h-24 w-1/2 rounded bg-gray-100 shadow-md">
+          <div className="ml-auto mr-auto mb-5 flex h-24 w-1/2 rounded bg-gray-100 shadow-md">
             <div className="m-4 flex h-16 w-full content-center justify-between rounded bg-white shadow-md">
               <div className="flex items-center justify-center pl-4">
                 <span className="mr-2 h-8 w-8 rounded bg-gray-700 text-center ">
