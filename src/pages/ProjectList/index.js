@@ -1,16 +1,28 @@
 import React from "react";
-import SelectProject from "../../components/SelectProject";
+import { Layout, SelectProject } from "../../components/";
 
 const ProjectList = () => {
+  const selectHeading = {
+    heading: "project",
+    description: "Go to one of your project to start working",
+  };
+  const selectRequirement = [
+    {
+      projectName: "Jira",
+      organizationName: "Atlassian",
+    },
+    {
+      projectName: "Jira",
+      organizationName: "Atlassian",
+    },
+  ];
   return (
-    <div>
+    <Layout>
       <SelectProject
-        heading="project"
-        description="Go to one of your project to start working"
-        projectName="Jira"
-        organizationName="Atlassian"
+        selectRequirement={selectRequirement}
+        selectHeading={selectHeading}
       />
-    </div>
+    </Layout>
   );
 };
 
