@@ -33,9 +33,9 @@ export const createOrganizationSlice = createSlice({
 
 export const createOrganization = createAsyncThunk(
   "organization/create",
-  async (orgname) => {
+  async (organizationName) => {
     const body = {
-      name: orgname,
+      name: organizationName,
     };
     return publicPost("organization", body);
   }

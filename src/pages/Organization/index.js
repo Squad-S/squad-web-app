@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createOrganization } from "../../state/CreateOrganization";
+import { createOrganization } from "../../state";
 import { Layout, CreateBlock } from "../../components";
 
 const Organization = () => {
