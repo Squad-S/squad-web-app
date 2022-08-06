@@ -1,5 +1,6 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { counterReducer } from "./counter";
+import { createProjectReducer } from "./CreateProject";
 import { confirmPasswordReducer } from "./user";
 
 const middlewares = [];
@@ -12,6 +13,7 @@ if (process.env.NODE_ENV !== "development") {
 const rootReducer = combineReducers({
   counter: counterReducer,
   confirmPassword: confirmPasswordReducer,
+  project: createProjectReducer,
 });
 
 const store = configureStore({

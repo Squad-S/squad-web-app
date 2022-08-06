@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { InviteMember, SignUp } from "./components";
-import { ConfirmPassword, Home, ProjectList } from "./pages";
+import { ConfirmPassword, Home, Project, ProjectList } from "./pages";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <Route path="/signup" element={<SignUp />} />
       <Route path="/confirm-password" element={<ConfirmPassword />} />
       <Route path="/project/invite" element={<InviteMember />} />
-
+      <Route path="/project" element={<Project />} />
       <Route path="/projects" element={<ProjectList />} />
     </Routes>
   );
