@@ -1,4 +1,1 @@
-export {
-  default as createOrganizationReducer,
-  createOrganization,
-} from "./slice";
+export { default as createOrganizationReducer } from "./slice";

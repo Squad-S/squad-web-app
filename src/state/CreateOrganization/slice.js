@@ -1,5 +1,5 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { publicPost } from "../../utilities";
+import { createSlice } from "@reduxjs/toolkit";
+import { createOrganization } from "./action";
 
 const STATUSES = Object.freeze({
   IDLE: "idle",
@@ -31,15 +31,5 @@ export const createOrganizationSlice = createSlice({
       });
   },
 });
-
-export const createOrganization = createAsyncThunk(
-  "organization/create",
-  async (organizationName) => {
-    const body = {
-      name: organizationName,
-    };
-    return publicPost("organization", body);
-  }
-);
 
 export default createOrganizationSlice.reducer;
