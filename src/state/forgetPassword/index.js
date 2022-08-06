@@ -1,1 +1,1 @@
-export { default as forgetPasswordSlice } from "./slice";
+export { default as forgetPasswordReducer } from "./slice";
