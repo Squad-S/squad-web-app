@@ -1,8 +1,8 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
-
+import { Route, Routes } from "react-router-dom";
+import { InviteMember, SignUp } from "./components";
 import { Home, ProjectList } from "./pages";
-import { SignUp, InviteMember } from "./components";
+import ConfirmPassword from "./pages/ConfirmPassword/ConfirmPassword";
 
 function App() {
   return (
@@ -10,6 +10,7 @@ function App() {
       <Route path="/" element={<Home />} />
 
       <Route path="/signup" element={<SignUp />} />
+      <Route path="/confirm-password" element={<ConfirmPassword />} />
       <Route path="/project/invite" element={<InviteMember />} />
 
       <Route path="/projects" element={<ProjectList />} />
