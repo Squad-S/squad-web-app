@@ -9,7 +9,7 @@ import React from "react";
 //   }
 // const inputs = [{
 //     lavel: "Input lavel",
-//     isRequired: true or false,
+//     isRequired: true,
 //     props: {
 //       id: "give a unique id for every input",
 //       placeholder: "Input's Placeholder",
