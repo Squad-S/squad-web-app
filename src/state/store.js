@@ -1,6 +1,6 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { counterReducer } from "./counter";
-import { createOrganizationSlice } from "./CreateOrganization";
+import { createOrganizationReducer } from "./CreateOrganization";
 
 const middlewares = [];
 
@@ -11,7 +11,7 @@ if (process.env.NODE_ENV !== "development") {
 
 const rootReducer = combineReducers({
   counter: counterReducer,
-  createOrganization: createOrganizationSlice,
+  organization: createOrganizationReducer,
 });
 
 const store = configureStore({

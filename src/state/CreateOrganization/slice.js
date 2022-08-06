@@ -26,6 +26,7 @@ export const createOrganizationSlice = createSlice({
         state.status = STATUSES.IDLE;
       })
       .addCase(createOrganization.rejected, (state, action) => {
+        state.data = action.payload;
         state.status = STATUSES.ERROR;
       });
   },

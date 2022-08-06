@@ -1,4 +1,4 @@
 export {
-  default as createOrganizationSlice,
+  default as createOrganizationReducer,
   createOrganization,
 } from "./slice";

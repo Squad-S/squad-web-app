@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createOrganization } from "../../state";
+import { createOrganization } from "../../state/CreateOrganization";
 import { Layout, CreateBlock } from "../../components";
 
 const Organization = () => {
   const dispatch = useDispatch();
-  const { data, status } = useSelector((state) => state.createOrganization);
+  const { data, status } = useSelector((state) => state.organization);
   const [organizationName, setOrganizationName] = useState("");
 
   const handleSubmit = (e) => {
@@ -29,6 +29,7 @@ const Organization = () => {
         placeholder: "Acme, Inc",
         type: "text",
         name: "orgname",
+        required: "required",
         value: organizationName,
         onChange: onChangeOrg,
       },
@@ -48,7 +49,9 @@ const Organization = () => {
   if (status === "loading") {
     return <h1 className="text-center">Loading...</h1>;
   } else if (status === "idle" && data.status === "success") {
-    return <h1 className="text-center">{data.data.message}</h1>;
+    return <h1 className="text-center text-green-700">{data.data.message}</h1>;
+  } else if (status === "error") {
+    return <h1 className="text-center text-red-700">Something Went Wrong</h1>;
   }
 
   return (
