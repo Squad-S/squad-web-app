@@ -1,17 +1,11 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
-import { api } from "../../configs";
+import { privatePut } from "../../utilities/apiCaller";
 
 export const confirmUserPassword = createAsyncThunk(
   "confirmPasswordSlice/confirmPassword",
   async (data, { rejectWithValue }) => {
     try {
-      const config = {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      };
-      const res = await axios.patch(`${api}/reset-password`, data, config);
+      const res = await privatePut("/reset-password", data);
       if (res) {
         return res.data;
       }

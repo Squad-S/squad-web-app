@@ -6,8 +6,8 @@ import { Form } from "../../components";
 import { confirmUserPassword } from "../../state/user/confirmPasswordSlice";
 import "./confirmPassword.css";
 const logo = "/assets/images/logo.png";
-const leftImage = "/assets/images/leftImage.PNG";
-const rightImage = "/assets/images/rightImage.PNG";
+const leftImage = "/assets/images/leftImage.png";
+const rightImage = "/assets/images/rightImage.png";
 
 const ConfirmPassword = () => {
   const [code, setCode] = useState("");
