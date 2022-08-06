@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { Home, ProjectList, Organization} from "./pages";
+import { Home, ProjectList, Organization } from "./pages";
 
 function App() {
   return (
