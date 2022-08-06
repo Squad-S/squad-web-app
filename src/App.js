@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
-import { Home, ProjectList } from "./pages";
+import { Home, ProjectList, ForgetPassword } from "./pages";
 import { SignUp, InviteMember } from "./components";
 
 function App() {
@@ -13,6 +13,7 @@ function App() {
       <Route path="/project/invite" element={<InviteMember />} />
 
       <Route path="/projects" element={<ProjectList />} />
+      <Route path="/forget-password" element={<ForgetPassword />} />
     </Routes>
   );
 }
