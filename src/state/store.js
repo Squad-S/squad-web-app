@@ -1,5 +1,6 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { counterReducer } from "./counter";
+import { forgetPasswordReducer } from "./forgetPassword";
 import { createOrganizationReducer } from "./CreateOrganization";
 import { confirmPasswordReducer } from "./user";
 
@@ -12,6 +13,7 @@ if (process.env.NODE_ENV !== "development") {
 
 const rootReducer = combineReducers({
   counter: counterReducer,
+  forgetPassword: forgetPasswordReducer,
   organization: createOrganizationReducer,
   confirmPassword: confirmPasswordReducer,
 });
