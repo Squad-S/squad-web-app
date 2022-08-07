@@ -11,17 +11,17 @@ const Layout = ({ children }) => {
     {
       list: "Dashboard",
       isActive: false,
-      id: 1,
+      id: 2,
     },
     {
       list: "Dashboard",
       isActive: false,
-      id: 1,
+      id: 3,
     },
     {
       list: "Dashboard",
       isActive: false,
-      id: 1,
+      id: 4,
     },
   ];
 
