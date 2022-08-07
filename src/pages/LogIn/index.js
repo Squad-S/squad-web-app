@@ -1,17 +1,31 @@
 import React, { useState } from "react";
 import "./login.css";
 import { Form } from "../../components";
+import { useDispatch } from "react-redux";
+import { fetchUserData } from "../../state/LogIn/loginSlice";
+import { useNavigate } from "react-router-dom";
 const logo = "/assets/images/logo.png";
 const leftImage = "/assets/images/leftImage.png";
 const rightImage = "/assets/images/rightImage.png";
 
 const LogIn = () => {
+  const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const handleSignup = () => {
+    navigate("/signup");
+  };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
     console.log(email, password);
+    dispatch(
+      fetchUserData({
+        email: email,
+        password: password,
+      })
+    );
   };
   return (
     <div className="h-screen bg-cyan-50">
@@ -32,7 +46,7 @@ const LogIn = () => {
             Log in to your account
           </h1>
 
-          <form onSubmit={handleFormSubmit}>
+          <form>
             <Form
               type="email"
               value={email}
@@ -51,6 +65,7 @@ const LogIn = () => {
 
             <div className="mt-6 ">
               <button
+                onClick={handleFormSubmit}
                 style={{ width: "95%" }}
                 className={` border-green focus:border-green-dark w-96 rounded border bg-blue-800 py-2 px-4 text-sm text-white focus:outline-none`}
               >
@@ -61,7 +76,8 @@ const LogIn = () => {
             <hr />
             <div>
               <p className={`text-center text-blue-700`}>
-                Can't log in? <button>Sign up for an account </button>{" "}
+                Can't log in?{" "}
+                <button onClick={handleSignup}>Sign up for an account </button>{" "}
               </p>
             </div>
           </form>

@@ -3,15 +3,15 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 import { privatePost } from "../../utilities";
 export const fetchUserData = createAsyncThunk(
-  "userLogin/fetchUserData",
-  async (data, { rejectWithValue }) => {
+  "user/signin",
+  async (user, { rejectWithValue }) => {
     try {
-      const res = await privatePost("/signin", data);
-      if (res) {
-        return res.data;
+      const response = await privatePost("/signin", user);
+      if (response) {
+        return response.data;
       }
-    } catch (e) {
-      rejectWithValue(e);
+    } catch (err) {
+      return rejectWithValue(err);
     }
   }
 );
