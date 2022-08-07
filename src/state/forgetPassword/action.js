@@ -6,9 +6,7 @@ export const forgotPassword = createAsyncThunk(
   async (email, { rejectWithValue }) => {
     try {
       const response = await publicPost("forgot-password", email);
-      if (response) {
-        return response.data;
-      }
+      return response.data;
     } catch (err) {
       return rejectWithValue(err);
     }
