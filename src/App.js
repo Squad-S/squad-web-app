@@ -18,7 +18,7 @@ function App() {
       <Route path="/confirm-password" element={<ConfirmPassword />} />
       <Route path="/project/invite" element={<InviteMember />} />
       <Route path="/projects" element={<ProjectList />} />
-      <Route path="/login" element={<LogIn></LogIn>} />
+      <Route path="/login" element={<LogIn />} />
     </Routes>
   );
 }

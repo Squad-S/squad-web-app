@@ -1,15 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-import { privatePost } from "../../utilities";
+import { publicPost } from "../../utilities";
 export const fetchUserData = createAsyncThunk(
   "user/signin",
   async (user, { rejectWithValue }) => {
     try {
-      const response = await privatePost("/signin", user);
-      if (response) {
-        return response.data;
-      }
+      const response = await publicPost("/signin", user);
+
+      return response.data;
     } catch (err) {
       return rejectWithValue(err);
     }
