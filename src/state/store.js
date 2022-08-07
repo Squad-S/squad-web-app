@@ -12,8 +12,8 @@ if (process.env.NODE_ENV !== "development") {
 
 const rootReducer = combineReducers({
   counter: counterReducer,
-  confirmPassword: confirmPasswordReducer,
   project: createProjectReducer,
+  confirmPassword: confirmPasswordReducer,
 });
 
 const store = configureStore({

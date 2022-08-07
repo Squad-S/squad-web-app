@@ -4,9 +4,6 @@ import { api } from "../configs";
 const config = {
   headers: {
     "Content-Type": "application/json",
-    token:
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlJhYmJpIiwidXNlcklkIjoiNjJlZTE5NWZkNjk5YTM3ZjZmYjg2M2QzIiwiaWF0IjoxNjU5NzgyMDcwfQ.IcEp7rxjX2VnBk-y6y0FpuPUXdloPQF6HS7wqp77r2I",
-    userId: "62ee195fd699a37f6fb863d3",
   },
 };
 
