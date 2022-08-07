@@ -1,5 +1,5 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { publicPost } from "../../utilities";
+import { createSlice } from "@reduxjs/toolkit";
+import { createProject } from "./action";
 
 const STATUSES = Object.freeze({
   IDLE: "idle",
@@ -31,15 +31,5 @@ export const createProjectSlice = createSlice({
       });
   },
 });
-
-export const createProject = createAsyncThunk(
-  "project/create",
-  async (projectName) => {
-    const body = {
-      name: projectName,
-    };
-    return publicPost("project", body);
-  }
-);
 
 export default createProjectSlice.reducer;

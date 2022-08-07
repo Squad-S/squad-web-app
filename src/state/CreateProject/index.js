@@ -1,1 +1,1 @@
-export { default as createProjectReducer, createProject } from "./slice";
+export { default as createProjectReducer } from "./slice";
