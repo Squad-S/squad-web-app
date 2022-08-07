@@ -33,26 +33,21 @@ const LogIn = () => {
           </h1>
 
           <form onSubmit={handleFormSubmit}>
-            <Form>
-              <label htmlFor="email"></label>
-              <input
-                type="email"
-                className={`text-primary mb-4 w-full rounded-md border p-2 text-sm outline-none transition duration-150 ease-in-out`}
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Your Email"
-              />
-            </Form>
-            <Form>
-              <label htmlFor="password"></label>
-              <input
-                type="password"
-                className={`text-primary mb-4 w-full rounded-md border p-2 text-sm outline-none transition duration-150 ease-in-out`}
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Your Password"
-              />
-            </Form>
+            <Form
+              type="email"
+              value={email}
+              name="email"
+              placeholder="Enter email"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+
+            <Form
+              type="password"
+              value={password}
+              name="password"
+              placeholder="Enter Password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
 
             <div className="mt-6 ">
               <button
@@ -78,6 +73,7 @@ const LogIn = () => {
       <div className="rightImage">
         <img src={rightImage} alt="background" />
       </div>
+      <p>{email}</p>
     </div>
   );
 };
