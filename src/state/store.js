@@ -1,11 +1,12 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { counterReducer } from "./counter";
 import { createProjectReducer } from "./CreateProject";
+import { createOrganizationReducer } from "./CreateOrganization";
 import { confirmPasswordReducer } from "./user";
 
 const middlewares = [];
 
-if (process.env.NODE_ENV !== "development") {
+if (process.env.NODE_ENV === "development") {
   const { logger } = require("redux-logger");
   middlewares.push(logger);
 }
@@ -13,6 +14,7 @@ if (process.env.NODE_ENV !== "development") {
 const rootReducer = combineReducers({
   counter: counterReducer,
   project: createProjectReducer,
+  organization: createOrganizationReducer,
   confirmPassword: confirmPasswordReducer,
 });
 
