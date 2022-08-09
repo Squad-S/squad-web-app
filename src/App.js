@@ -6,6 +6,7 @@ import {
   Organization,
   ConfirmPassword,
   ForgetPassword,
+  OrganizationList,
 } from "./pages";
 import { SignUp, InviteMember } from "./components";
 
@@ -19,6 +20,10 @@ function App() {
       <Route path="/project/invite" element={<InviteMember />} />
       <Route path="/projects" element={<ProjectList />} />
       <Route path="/forget-password" element={<ForgetPassword />} />
+      <Route
+        path="/organization-list"
+        element={<OrganizationList type="Organization" />}
+      />
     </Routes>
   );
 }
