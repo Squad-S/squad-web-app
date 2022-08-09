@@ -4,9 +4,10 @@ import {
   Home,
   ProjectList,
   Organization,
-  ConfirmPassword,
+  Project,
   ForgetPassword,
   OrganizationList,
+  ConfirmPassword,
 } from "./pages";
 import { SignUp, InviteMember } from "./components";
 
@@ -18,6 +19,7 @@ function App() {
       <Route path="/signup" element={<SignUp />} />
       <Route path="/confirm-password" element={<ConfirmPassword />} />
       <Route path="/project/invite" element={<InviteMember />} />
+      <Route path="/project" element={<Project />} />
       <Route path="/projects" element={<ProjectList />} />
       <Route path="/forget-password" element={<ForgetPassword />} />
       <Route
