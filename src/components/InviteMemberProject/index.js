@@ -1,22 +1,38 @@
-import { Button, Container, Grid, IconButton, InputBase } from "@mui/material";
-import React, { useState } from "react";
-import { inviteMemberProjectSlice } from "../../state/inviteMemberProject/inviteMemberProjectSlice";
-import { Form } from "..";
 import SearchIcon from "@mui/icons-material/Search";
-import { NavLink } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import {
+  Avatar,
+  Button,
+  Container,
+  Grid,
+  IconButton,
+  InputBase,
+  Stack,
+  Typography,
+} from "@mui/material";
+import { deepOrange } from "@mui/material/colors";
+import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
+import { Form } from "..";
+import { deleteInviteProject } from "../../state/inviteListProject/deleteInviteProjectSlice";
+import { inviteListProject } from "../../state/inviteListProject/inviteListProjectSlice";
+import { updateInviteProject } from "../../state/inviteListProject/updateInviteProjectSlice";
+import { inviteMemberProjectSlice } from "../../state/inviteMemberProject/inviteMemberProjectSlice";
 const inviteImg = "/asset/img/inviteImg.jpg";
-const rows = [];
+
 const InvaiteMemberProject = () => {
   const [email, setEmail] = useState(null);
   const dispatch = useDispatch();
+  const projectInviteList = useSelector((state) => state.projectInviteList);
+
+  const { users } = projectInviteList;
   const handleSubmtClicked = (e) => {
     e.preventDefault();
     if (email !== null) {
@@ -24,6 +40,21 @@ const InvaiteMemberProject = () => {
     }
   };
 
+  const deleteMemberProject = (id) => {
+    dispatch(deleteInviteProject(id));
+  };
+
+  const updateMemberProject = (user) => {
+    const data = {
+      status: user.status,
+      inviteId: user._id,
+    };
+    dispatch(updateInviteProject(data));
+  };
+
+  useEffect(() => {
+    dispatch(inviteListProject());
+  }, [dispatch]);
   return (
     <Container className=" my-2">
       <section style={{ display: "flex", margin: "15px 15px" }}>
@@ -148,21 +179,41 @@ const InvaiteMemberProject = () => {
                 <TableCell>User</TableCell>
                 <TableCell align="right">Last active</TableCell>
                 <TableCell align="right">Status</TableCell>
-                <TableCell align="right">Ations</TableCell>
+                <TableCell align="right">Actions</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {rows.map((row) => (
+              {users.map((user) => (
                 <TableRow
-                  key={row.name}
+                  key={user.name}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
                   <TableCell component="th" scope="row">
-                    {row.name}
+                    <Stack direction="row" alignItems="center" spacing={1}>
+                      <Avatar sx={{ bgcolor: deepOrange[500] }}>
+                        {user.email[0]}
+                      </Avatar>
+                      <Typography> {user.email}</Typography>
+                    </Stack>
                   </TableCell>
-                  <TableCell align="right">{row.lastActive}</TableCell>
-                  <TableCell align="right">{row.status}</TableCell>
-                  <TableCell align="right">{row.actions}</TableCell>
+                  <TableCell align="right">{user.lastActive}</TableCell>
+                  <TableCell align="right">{user.status}</TableCell>
+                  <TableCell align="right">
+                    <Stack direction="row" alignItems="center" spacing={1}>
+                      <Button
+                        variant="text"
+                        onClick={() => deleteMemberProject(user._id)}
+                      >
+                        Delete invite
+                      </Button>
+                      <Button
+                        variant="text"
+                        onClick={() => updateMemberProject(user)}
+                      >
+                        Update invite
+                      </Button>
+                    </Stack>
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
