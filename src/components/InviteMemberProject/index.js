@@ -183,7 +183,7 @@ const InvaiteMemberProject = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {users && users !== undefined && (
+              {users && (
                 <>
                   {users.map((user) => (
                     <TableRow

@@ -3,7 +3,7 @@ import axios from "axios";
 import { api } from "../../configs";
 export const deleteInviteProject = createAsyncThunk(
   "deleteInviteProjectSlice/deleteInviteProject",
-  async (inviteId) => {
+  async (inviteId, { rejectWithValue }) => {
     try {
       const config = {
         headers: {
@@ -16,7 +16,7 @@ export const deleteInviteProject = createAsyncThunk(
       );
       return response;
     } catch (e) {
-      console.log(e);
+      rejectWithValue(e);
     }
   }
 );

@@ -2,13 +2,13 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { publicGet } from "../../utilities";
 export const inviteListProject = createAsyncThunk(
   "inviteListProjectSlice/inviteListProject",
-  async (projectId) => {
+  async (projectId, { rejectWithValue }) => {
     try {
       const response = await publicGet(`/project/invites/${projectId}`);
 
       return response.data.invites;
     } catch (e) {
-      console.log(e);
+      rejectWithValue(e);
     }
   }
 );

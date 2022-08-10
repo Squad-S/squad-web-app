@@ -3,7 +3,7 @@ import { api } from "../../configs";
 import { privatePut } from "../../utilities";
 export const updateInviteProject = createAsyncThunk(
   "updateInviteProjectSlice/updateInviteProject",
-  async (data) => {
+  async (data, { rejectWithValue }) => {
     try {
       const response = await privatePut(
         `${api}/project/invite/${data.inviteId}`,
@@ -11,7 +11,7 @@ export const updateInviteProject = createAsyncThunk(
       );
       return response;
     } catch (e) {
-      console.log(e);
+      rejectWithValue(e);
     }
   }
 );
