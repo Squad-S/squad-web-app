@@ -4,9 +4,7 @@ export const inviteListProject = createAsyncThunk(
   "inviteListProjectSlice/inviteListProject",
   async (projectId) => {
     try {
-      const response = await publicGet(
-        `/project/invites/62e90a9b4b46ed258587ef7f`
-      );
+      const response = await publicGet(`/project/invites/${projectId}`);
 
       return response.data.invites;
     } catch (e) {

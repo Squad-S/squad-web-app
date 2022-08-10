@@ -6,17 +6,17 @@ import {
   Grid,
   IconButton,
   InputBase,
+  Paper,
   Stack,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
   Typography,
 } from "@mui/material";
 import { deepOrange } from "@mui/material/colors";
-import Paper from "@mui/material/Paper";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
@@ -183,39 +183,50 @@ const InvaiteMemberProject = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {users.map((user) => (
-                <TableRow
-                  key={user.name}
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                >
-                  <TableCell component="th" scope="row">
-                    <Stack direction="row" alignItems="center" spacing={1}>
-                      <Avatar sx={{ bgcolor: deepOrange[500] }}>
-                        {user.email[0]}
-                      </Avatar>
-                      <Typography> {user.email}</Typography>
-                    </Stack>
-                  </TableCell>
-                  <TableCell align="right">{user.lastActive}</TableCell>
-                  <TableCell align="right">{user.status}</TableCell>
-                  <TableCell align="right">
-                    <Stack direction="row" alignItems="center" spacing={1}>
-                      <Button
-                        variant="text"
-                        onClick={() => deleteMemberProject(user._id)}
-                      >
-                        Delete invite
-                      </Button>
-                      <Button
-                        variant="text"
-                        onClick={() => updateMemberProject(user)}
-                      >
-                        Update invite
-                      </Button>
-                    </Stack>
-                  </TableCell>
-                </TableRow>
-              ))}
+              {users && users !== undefined ? (
+                <>
+                  {users.map((user) => (
+                    <TableRow
+                      key={user._id}
+                      sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                    >
+                      <TableCell component="th" scope="row">
+                        <Stack direction="row" alignItems="center" spacing={1}>
+                          <Avatar sx={{ bgcolor: deepOrange[500] }}>
+                            {user.email[0]}
+                          </Avatar>
+                          <Typography> {user.email}</Typography>
+                        </Stack>
+                      </TableCell>
+                      <TableCell align="right">{user.lastActive}</TableCell>
+                      <TableCell align="right">{user.status}</TableCell>
+                      <TableCell align="right">
+                        <Stack
+                          direction="row"
+                          alignItems="center"
+                          spacing={1}
+                          justifyContent="right"
+                        >
+                          <Button
+                            variant="text"
+                            onClick={() => deleteMemberProject(user._id)}
+                          >
+                            Delete invite
+                          </Button>
+                          <Button
+                            variant="text"
+                            onClick={() => updateMemberProject(user)}
+                          >
+                            Update invite
+                          </Button>
+                        </Stack>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </>
+              ) : (
+                <></>
+              )}
             </TableBody>
           </Table>
         </TableContainer>
