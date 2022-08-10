@@ -5,8 +5,8 @@ import { useDispatch } from "react-redux";
 import { fetchUserData } from "../../state/LogIn/loginSlice";
 import { useNavigate } from "react-router-dom";
 const logo = "/assets/images/logo.png";
-const leftImage = "/assets/images/leftImage.png";
-const rightImage = "/assets/images/rightImage.png";
+const leftImage = "/assets/images/leftimage.svg";
+const rightImage = "/assets/images/rightimage.svg";
 
 const LogIn = () => {
   const dispatch = useDispatch();
@@ -29,20 +29,24 @@ const LogIn = () => {
   };
   return (
     <div className="h-screen bg-cyan-50">
-      <div className="leftImage">
-        <img src={leftImage} alt="background" />
+      <div>
+        <img
+          className="absolute bottom-0 left-0 w-96"
+          src={leftImage}
+          alt="background"
+        />
       </div>
 
-      <div className="logo-bg">
+      <div className="align-center grid justify-center py-5">
         <img
-          className={`logo h-32 w-48 bg-blue-800 object-contain p-3`}
+          className="logo h-32 w-48 bg-blue-800 object-contain p-3"
           src={logo}
           alt=""
         />
       </div>
       <div>
         <div className=" border-primaryBorder m-auto w-full max-w-md rounded-lg border bg-white py-10 px-16 shadow-xl">
-          <h1 className="text-bold text-primary mt-4 mb-12 text-center text-2xl font-medium">
+          <h1 className="text-bold text-primary mt-4 mb-4 text-center text-2xl font-medium">
             Log in to your account
           </h1>
 
@@ -63,33 +67,31 @@ const LogIn = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
 
-            <div className="mt-6 ">
+            <div className="mt-6">
               <button
                 onClick={handleFormSubmit}
-                style={{ width: "95%" }}
-                className={` border-green focus:border-green-dark w-96 rounded border bg-blue-800 py-2 px-4 text-sm text-white focus:outline-none`}
+                className="border-green focus:border-green-dark w-[90%] rounded border bg-blue-800 py-2 px-4  text-white focus:outline-none"
               >
                 Login
               </button>
             </div>
-            <h1 className={`py-4 text-center text-green-500`}>OR</h1>
+            <h1 className="py-4 text-center text-green-500">OR</h1>
             <hr />
             <div>
-              <p className={`text-center text-blue-700`}>
-                Can't log in?{" "}
-                <button onClick={handleSignup}>Sign up for an account </button>{" "}
+              <p className="text-center text-blue-700">
+                Can't log in?
+                <button onClick={handleSignup}>Sign up for an account </button>
               </p>
             </div>
           </form>
         </div>
       </div>
-      <p className={`py-4 text-center text-blue-700`}>
+      <p className="py-4 text-center text-blue-700">
         Privacy Policy User Notice
       </p>
-      <div className="rightImage">
+      <div className="absolute right-0 bottom-0 w-96">
         <img src={rightImage} alt="background" />
       </div>
-      <p>{email}</p>
     </div>
   );
 };
