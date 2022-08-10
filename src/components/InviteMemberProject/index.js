@@ -2,6 +2,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import {
   Avatar,
   Button,
+  colors,
   Container,
   Grid,
   IconButton,
@@ -16,7 +17,6 @@ import {
   TableRow,
   Typography,
 } from "@mui/material";
-import { deepOrange } from "@mui/material/colors";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
@@ -183,7 +183,7 @@ const InvaiteMemberProject = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {users && users !== undefined ? (
+              {users && users !== undefined && (
                 <>
                   {users.map((user) => (
                     <TableRow
@@ -192,7 +192,7 @@ const InvaiteMemberProject = () => {
                     >
                       <TableCell component="th" scope="row">
                         <Stack direction="row" alignItems="center" spacing={1}>
-                          <Avatar sx={{ bgcolor: deepOrange[500] }}>
+                          <Avatar sx={{ bgcolor: colors.deepOrange[500] }}>
                             {user.email[0]}
                           </Avatar>
                           <Typography> {user.email}</Typography>
@@ -224,8 +224,6 @@ const InvaiteMemberProject = () => {
                     </TableRow>
                   ))}
                 </>
-              ) : (
-                <></>
               )}
             </TableBody>
           </Table>
