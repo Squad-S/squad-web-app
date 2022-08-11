@@ -2,6 +2,7 @@ import React from "react";
 import AppsIcon from "@mui/icons-material/Apps";
 import HelpIcon from "@mui/icons-material/Help";
 import AccountCircleSharpIcon from "@mui/icons-material/AccountCircleSharp";
+import { Link } from "@mui/material";
 
 const Logo = "/assets/images/logo.png";
 
@@ -60,21 +61,21 @@ const Navbar = ({ menuname, button }) => {
                   <div className="hidden sm:ml-6 sm:block" key={menu.id} ml-8>
                     <div className="flex space-x-1 ">
                       {menu.isActive ? (
-                        <a
+                        <Link
                           href="#"
                           className="text-md rounded-md border-b-4 border-blue-700 px-3 py-2 font-medium text-black  "
                           aria-current="page"
                         >
                           {menu.list}
-                        </a>
+                        </Link>
                       ) : (
-                        <a
+                        <Link
                           href="#"
                           className="text-md rounded-md px-3 py-2 font-medium text-black "
                           aria-current="page"
                         >
                           {menu.list}
-                        </a>
+                        </Link>
                       )}
                     </div>
                   </div>
