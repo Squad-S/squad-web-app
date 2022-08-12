@@ -21,8 +21,8 @@ function App() {
       <Route path="/project/invite" element={<InviteMember />} />
       <Route path="/project" element={<Project />} />
       <Route path="/projects" element={<ProjectList />} />
+      <Route path="/forgot-password" element={<ForgetPassword />} />
       <Route path="/login" element={<LogIn />} />
-      <Route path="/forget-password" element={<ForgetPassword />} />
     </Routes>
   );
 }
