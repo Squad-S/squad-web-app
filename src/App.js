@@ -1,15 +1,15 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import { InviteMember, SignUp } from "./components";
 import {
-  Home,
-  ProjectList,
-  Organization,
-  LogIn,
-  Project,
-  ForgetPassword,
   ConfirmPassword,
+  ForgetPassword,
+  Home,
+  LogIn,
+  Organization,
+  Project,
+  ProjectList,
 } from "./pages";
-import { SignUp, InviteMember } from "./components";
 
 function App() {
   return (
