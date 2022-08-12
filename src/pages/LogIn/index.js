@@ -16,6 +16,9 @@ const LogIn = () => {
   const handleSignup = () => {
     navigate("/signup");
   };
+  const handleForgetPassword = () => {
+    navigate("/forget-password");
+  };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -73,6 +76,14 @@ const LogIn = () => {
                 className="border-green focus:border-green-dark w-[90%] rounded border bg-blue-800 py-2 px-4  text-white focus:outline-none"
               >
                 Login
+              </button>
+            </div>
+            <div>
+              <button
+                className="mt-4 text-blue-800"
+                onClick={handleForgetPassword}
+              >
+                Forgotten Password ?{" "}
               </button>
             </div>
             <h1 className="py-4 text-center text-green-500">OR</h1>
