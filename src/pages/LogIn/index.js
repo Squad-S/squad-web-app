@@ -83,7 +83,7 @@ const LogIn = () => {
                 className="mt-4 text-blue-800"
                 onClick={handleForgetPassword}
               >
-                Forgotten Password ?{" "}
+                Forgotten Password ?
               </button>
             </div>
             <h1 className="py-4 text-center text-green-500">OR</h1>
