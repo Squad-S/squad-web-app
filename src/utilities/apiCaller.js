@@ -4,6 +4,7 @@ import { api } from "../configs";
 const config = {
   headers: {
     "Content-Type": "application/json",
+    userId: "62ed23905a156bc321813c99",
   },
 };
 
