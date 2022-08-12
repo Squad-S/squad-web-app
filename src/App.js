@@ -18,7 +18,7 @@ function App() {
       <Route path="/confirm-password" element={<ConfirmPassword />} />
       <Route path="/project/invite" element={<InviteMember />} />
       <Route path="/projects" element={<ProjectList />} />
-      <Route path="/forget-password" element={<ForgetPassword />} />
+      <Route path="/forgot-password" element={<ForgetPassword />} />
     </Routes>
   );
 }
