@@ -34,3 +34,8 @@ export const privatePut = async (endpoint, token, body) => {
   const response = await axios.put(`${api}${endpoint}`, body, config);
   return response.data;
 };
+
+export const publicPatch = async (endpoint, body) => {
+  const response = await axios.patch(`${api}${endpoint}`, body, config);
+  return response.data;
+};

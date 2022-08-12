@@ -1,14 +1,15 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import { InviteMember, SignUp } from "./components";
 import {
+  ConfirmPassword,
+  ForgetPassword,
   Home,
-  ProjectList,
+  LogIn,
   Organization,
   Project,
-  ForgetPassword,
-  ConfirmPassword,
+  ProjectList,
 } from "./pages";
-import { SignUp, InviteMember } from "./components";
 
 function App() {
   return (
@@ -20,7 +21,8 @@ function App() {
       <Route path="/project/invite" element={<InviteMember />} />
       <Route path="/project" element={<Project />} />
       <Route path="/projects" element={<ProjectList />} />
-      <Route path="/forget-password" element={<ForgetPassword />} />
+      <Route path="/forgot-password" element={<ForgetPassword />} />
+      <Route path="/login" element={<LogIn />} />
     </Routes>
   );
 }
