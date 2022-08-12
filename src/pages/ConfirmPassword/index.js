@@ -6,8 +6,8 @@ import { Form } from "../../components";
 import { confirmUserPassword } from "../../state/user/confirmPasswordSlice";
 import "./confirmPassword.css";
 const logo = "/assets/images/logo.png";
-const leftImage = "/assets/images/leftImage.png";
-const rightImage = "/assets/images/rightImage.png";
+const leftImage = "/assets/images/leftimage.svg";
+const rightImage = "/assets/images/rightimage.svg";
 
 const ConfirmPassword = () => {
   const [code, setCode] = useState("");
@@ -23,8 +23,12 @@ const ConfirmPassword = () => {
 
   return (
     <section className="h-screen">
-      <div className="left-image">
-        <img src={leftImage} alt="background" />
+      <div>
+        <img
+          className="absolute bottom-0 left-0 w-96"
+          src={leftImage}
+          alt="background"
+        />
       </div>
       <div className="container mx-auto">
         <div className="flex justify-center">
@@ -33,7 +37,7 @@ const ConfirmPassword = () => {
           </div>
         </div>
 
-        <div className="mx-auto my-5 max-w-lg rounded-xl bg-white p-8 shadow-2xl shadow-slate-300">
+        <div className="border-primaryBorder m-auto w-full max-w-md rounded-lg border bg-white py-10 px-16 shadow-xl">
           <h4 className="text-center ">Reset Password</h4>
 
           <form className="my-5">
@@ -53,7 +57,7 @@ const ConfirmPassword = () => {
             />
 
             <Button
-              variant="regular"
+              variant="contained"
               sx={{
                 width: "90%",
                 backgroundColor: "RoyalBlue",
@@ -65,6 +69,7 @@ const ConfirmPassword = () => {
             >
               Confirm
             </Button>
+
             <hr />
             <p className="my-2 text-center">
               <Link
@@ -78,7 +83,7 @@ const ConfirmPassword = () => {
           </form>
         </div>
       </div>
-      <div className="right-image">
+      <div className="absolute right-0 bottom-0 w-96">
         <img src={rightImage} alt="background" />
       </div>
     </section>
