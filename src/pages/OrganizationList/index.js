@@ -10,11 +10,6 @@ const OrganizationList = () => {
   };
   const { orgList } = useSelector((state) => state.orgList);
 
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(fetchOrgs());
-  // });
-
   return (
     <Layout>
       <ListSelection

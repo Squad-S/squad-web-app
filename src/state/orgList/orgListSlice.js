@@ -1,40 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-// import { publicGet } from "../../utilities";
+import { publicGet } from "../../utilities";
 
 export const fetchOrgs = createAsyncThunk("orgList/fetchOrgs", async () => {
   try {
-    // const response = await publicGet("/users");
-    const response = await axios.get(
-      "https://jsonplaceholder.typicode.com/users"
-    );
-
+    const response = await publicGet("/organization");
     return response.data;
   } catch (err) {
     return err;
   }
 });
 
-// export const deleteOrg =  () => {
-//   const delResponse = await publicDelete("/users");
-// }
-
 export const orgListSlice = createSlice({
   name: "orgList",
   initialState: {
     isLoading: false,
-    orgList: [
-      {
-        organizationName: "Jira",
-      },
-      {
-        organizationName: "Google LLC",
-      },
-      {
-        organizationName: "Microsoft Teams",
-      },
-    ],
+    orgList: [],
     error: null,
   },
   extraReducers: (builder) => {

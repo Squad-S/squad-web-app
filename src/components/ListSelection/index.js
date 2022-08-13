@@ -12,16 +12,16 @@ const ListSelection = ({ selectRequirement, selectHeading }) => {
   };
   const handleSelect = (id) => {
     if (selectHeading.heading === "project") {
-      navigate("/project/id");
+      navigate("/project/${id}");
     } else {
-      navigate("/organization/id");
+      navigate("/organization/${id}");
     }
   };
   const handlDelete = (id) => {
     if (selectHeading.heading === "project") {
-      navigate("/project/id");
+      navigate("/project/${id}");
     } else {
-      navigate("/organization/id");
+      navigate("/organization/${id}");
     }
   };
   const titleName = (items) => {
@@ -56,12 +56,6 @@ const ListSelection = ({ selectRequirement, selectHeading }) => {
                   <p className=" text-xs font-bold text-gray-400">
                     {selectHeading.heading}
                   </p>
-                  {/* <p className="mb-0 text-sm font-semibold text-gray-700">
-                    {items.username}
-                  </p>
-                  <p className=" text-xs font-bold text-gray-400">
-                    {items.name}
-                  </p> */}
                 </div>
               </div>
               <div className="flex justify-between">
