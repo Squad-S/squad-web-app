@@ -1,11 +1,11 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { privatePut } from "../../utilities/apiCaller";
+import { publicPatch } from "../../utilities/apiCaller";
 
 export const confirmUserPassword = createAsyncThunk(
   "confirmPasswordSlice/confirmPassword",
   async (data, { rejectWithValue }) => {
     try {
-      const res = await privatePut("/reset-password", data);
+      const res = await publicPatch("/reset-password", data);
       if (res) {
         return res.data;
       }
