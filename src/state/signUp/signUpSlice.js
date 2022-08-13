@@ -2,15 +2,17 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { publicPost } from "../../utilities/apiCaller";
 
 export const createSignUp = createAsyncThunk(
-  "user/signup",
+  "/signup",
   async (user, { rejectWithValue }) => {
     try {
-      const response = await publicPost("/user/signup", user);
+      console.log(user);
+      const response = await publicPost("/signup", user);
+
       if (response) {
+        console.log(response);
         return response.data;
       }
     } catch (err) {
-      // You can choose to use the message attached to err or write a custom error
       return rejectWithValue(err);
     }
   }
@@ -18,12 +20,25 @@ export const createSignUp = createAsyncThunk(
 
 export const signUpSlice = createSlice({
   name: "signup",
+  initialState: {
+    isLoading: false,
+    success: false,
+    error: null,
+  },
 
-  reducers: {},
-  extraReducers: {
-    [createSignUp.rejected]: (state, action) => {
-      console.log(action.payload);
-    },
+  extraReducers: (builder) => {
+    builder.addCase(createSignUp.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(createSignUp.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.error = null;
+      state.success = true;
+    });
+    builder.addCase(createSignUp.rejected, (state, action) => {
+      state.isLoading = false;
+      state.error = action.error.message;
+    });
   },
 });
 

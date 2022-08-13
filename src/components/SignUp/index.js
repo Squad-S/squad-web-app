@@ -1,9 +1,10 @@
-import { Button, Container, Grid, Paper } from "@mui/material";
+import { Button, Grid, Paper } from "@mui/material";
 import React, { useState } from "react";
-import { Form } from "..";
+import { Form, Loader } from "..";
 import CheckIcon from "@mui/icons-material/Check";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { createSignUp } from "../../state/signUp/signUpSlice";
+import { NavLink, useNavigate } from "react-router-dom";
 const signUpImg = "/asset/img/signUp-img.png";
 const logo = "/asset/img/logo.png";
 
@@ -12,7 +13,13 @@ const SignUp = () => {
   const [name, setName] = useState(null);
   const [password, setPassword] = useState(null);
   const dispatch = useDispatch();
+  let navigate = useNavigate();
 
+  const signUp = useSelector((state) => state.signUp);
+  const { isLoading, success } = signUp;
+  if (success) {
+    navigate("/", { replace: true });
+  }
   const handleSubmtClicked = (e) => {
     e.preventDefault();
     if (email !== null && name !== null && password !== null) {
@@ -20,15 +27,28 @@ const SignUp = () => {
     }
   };
   return (
-    <Container className=" my-2">
+    <main>
       <div>
+        <section>
+          <svg
+            style={{ position: "absolute", margin: 0, zIndex: "-1" }}
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1440 320"
+          >
+            <path
+              fill="blue"
+              d="M0,224L80,202.7C160,181,320,139,480,149.3C680,160,800,224,960,218.7C1120,213,1280,139,1360,101.3L1440,64L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,180,0C320,0,360,0,80,0L0,0Z"
+            ></path>
+          </svg>
+        </section>
         <img
           style={{
-            backgroundColor: "blue",
             marginLeft: "43%",
             borderRadius: "30% 70% 70% 30%",
-            height: "150px",
-            width: "300px",
+            height: "100px",
+            width: "200px",
+            paddingTop: "10px",
+            zIndex: -1,
           }}
           src={logo}
           alt=""
@@ -38,7 +58,7 @@ const SignUp = () => {
       <Grid
         container
         spacing={2}
-        style={{ marginLeft: "20%", marginTop: "15px" }}
+        style={{ marginLeft: "20%", marginTop: "-35px" }}
       >
         <Grid item xs={12} md={4}>
           <img
@@ -75,6 +95,7 @@ const SignUp = () => {
                 textAlign: "center",
                 fontSize: "25px",
                 marginBottom: "10px",
+                paddingTop: "25px",
               }}
             >
               <b>Get Started</b>
@@ -101,25 +122,41 @@ const SignUp = () => {
                 name="password"
                 onChange={(e) => setPassword(e.target.value)}
               />
+              {isLoading ? (
+                <Loader></Loader>
+              ) : (
+                <Button
+                  variant="contained"
+                  sx={{
+                    width: "90%",
+                    backgroundColor: "RoyalBlue",
+                    my: 2,
+                    color: "white",
+                  }}
+                  type="submit"
+                  onClick={handleSubmtClicked}
+                >
+                  Sign Up
+                </Button>
+              )}
 
-              <Button
-                variant="regular"
-                sx={{
-                  width: "90%",
-                  backgroundColor: "RoyalBlue",
-                  my: 4,
-                  color: "white",
-                }}
-                type="submit"
-                onClick={handleSubmtClicked}
-              >
-                Sign Up
-              </Button>
+              <NavLink to="/login">
+                <p
+                  style={{
+                    marginLeft: "15%",
+                    marginTop: "5px",
+                    paddingBottom: "15px",
+                  }}
+                >
+                  Already a member ? go to{" "}
+                  <strong style={{ color: "green" }}> Log in</strong>
+                </p>
+              </NavLink>
             </form>
           </Paper>
         </Grid>
       </Grid>
-    </Container>
+    </main>
   );
 };
 
