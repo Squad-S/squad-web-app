@@ -123,7 +123,7 @@ const SignUp = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
               {isLoading ? (
-                <Loader></Loader>
+                <Loader />
               ) : (
                 <Button
                   variant="contained"

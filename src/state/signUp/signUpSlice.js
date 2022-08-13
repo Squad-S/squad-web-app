@@ -3,13 +3,10 @@ import { publicPost } from "../../utilities/apiCaller";
 
 export const createSignUp = createAsyncThunk(
   "/signup",
-  async (user, { rejectWithValue }) => {
+  async (data, { rejectWithValue }) => {
     try {
-      console.log(user);
-      const response = await publicPost("/signup", user);
-
+      const response = await publicPost("/signup", data);
       if (response) {
-        console.log(response);
         return response.data;
       }
     } catch (err) {
