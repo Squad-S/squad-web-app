@@ -1,6 +1,37 @@
 import BusinessIcon from "@mui/icons-material/Business";
+import { useNavigate } from "react-router-dom";
 
 const ListSelection = ({ selectRequirement, selectHeading }) => {
+  const navigate = useNavigate();
+  const handleCreate = () => {
+    if (selectHeading.heading === "project") {
+      navigate("/project");
+    } else {
+      navigate("/organization");
+    }
+  };
+  const handleSelect = (id) => {
+    if (selectHeading.heading === "project") {
+      navigate("/project/${id}");
+    } else {
+      navigate("/organization/${id}");
+    }
+  };
+  const handlDelete = (id) => {
+    if (selectHeading.heading === "project") {
+      navigate("/project/${id}");
+    } else {
+      navigate("/organization/${id}");
+    }
+  };
+  const titleName = (items) => {
+    if (selectHeading.heading === "project") {
+      return items.projectName;
+    } else {
+      return items.organizationName;
+    }
+  };
+
   return (
     <div className="mt-16">
       <h2 className="mb-1 text-center text-2xl font-bold text-gray-700">
@@ -20,28 +51,43 @@ const ListSelection = ({ selectRequirement, selectHeading }) => {
 
                 <div className="">
                   <p className="mb-0 text-sm font-semibold text-gray-700">
-                    {items.projectName}
+                    {titleName(items)}
                   </p>
                   <p className=" text-xs font-bold text-gray-400">
-                    {items.organizationName}
+                    {selectHeading.heading}
                   </p>
                 </div>
               </div>
-              <button className="m-4 rounded bg-gray-100 px-3 py-0 font-semibold text-gray-600">
-                Select
-              </button>
+              <div className="flex justify-between">
+                <button
+                  className="m-4 rounded bg-gray-100 px-3 py-0 font-semibold text-gray-600"
+                  onClick={handleSelect}
+                >
+                  Select
+                </button>
+                <button
+                  className="m-4 rounded bg-gray-100 px-3 py-0 font-semibold text-gray-600"
+                  onClick={handlDelete}
+                >
+                  Delete
+                </button>
+              </div>
             </div>
           </div>
         );
       })}
 
-      <p className="mt-8 text-center text-sm">
-        <span className="font-bold text-sky-600">
+      <p className="mt-12 mb-16 text-center text-sm">
+        <span
+          className="cursor-pointer font-bold text-sky-600"
+          onClick={handleCreate}
+        >
           Create a new {selectHeading.heading}
         </span>
         <span className="text-gray-500"> to work with or </span>
         <span className="font-bold text-sky-600">come back later</span>
       </p>
+      <div className="h-1"></div>
     </div>
   );
 };
