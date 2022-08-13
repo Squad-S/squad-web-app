@@ -8,7 +8,8 @@ const config = {
 };
 
 export const publicGet = async (endpoint) => {
-  const response = await axios.get(`${api}${endpoint}`, config);
+  // const response = await axios.get(`${api}${endpoint}`, config);
+  const response = await axios.get(`${api}${endpoint}`);
   return response.data;
 };
 
