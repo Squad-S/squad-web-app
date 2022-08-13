@@ -8,8 +8,8 @@ import {
   LogIn,
   Organization,
   Project,
-  ForgetPassword,
-  ConfirmPassword,
+  ProjectList,
+  OrganizationList,
 } from "./pages";
 
 function App() {
