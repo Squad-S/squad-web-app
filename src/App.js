@@ -22,7 +22,7 @@ function App() {
       <Route path="/project" element={<Project />} />
       <Route path="/projects" element={<ProjectList />} />
       <Route path="/login" element={<LogIn />} />
-      <Route path="/forget-password" element={<ForgetPassword />} />
+      <Route path="/forgot-password" element={<ForgetPassword />} />
     </Routes>
   );
 }

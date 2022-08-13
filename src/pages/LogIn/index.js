@@ -17,7 +17,7 @@ const LogIn = () => {
     navigate("/signup");
   };
   const handleForgetPassword = () => {
-    navigate("/forget-password");
+    navigate("/forgot-password");
   };
 
   const handleFormSubmit = (e) => {
