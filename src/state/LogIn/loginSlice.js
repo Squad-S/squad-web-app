@@ -6,7 +6,7 @@ export const fetchUserData = createAsyncThunk(
   "user/signin",
   async (user, { rejectWithValue }) => {
     try {
-      const response = await publicPost("/signin", user);
+      const response = await publicPost("signin", user);
 
       return response.data;
     } catch (err) {
