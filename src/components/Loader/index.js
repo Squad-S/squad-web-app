@@ -1,7 +1,7 @@
 import { Box, CircularProgress } from "@mui/material";
 import React from "react";
 
-const index = () => {
+const Index = () => {
   return (
     <Box style={{ marginLeft: "45%" }} sx={{ display: "flex" }}>
       <CircularProgress />
@@ -9,4 +9,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;
