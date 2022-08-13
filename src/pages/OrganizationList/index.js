@@ -1,30 +1,27 @@
-import { React } from "react";
-import { Layout, ListSelection } from "../../components/";
+import { React, useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Layout, ListSelection } from "../../components";
+import { fetchOrgs } from "../../state/orgList/orgListSlice";
 
-const OrganizationList = (params) => {
+const OrganizationList = () => {
   const selectHeading = {
-    heading: params.type,
-    description:
-      "Go to one of your " + params.type + "s to start An Atlassian trail",
+    heading: "Organization",
+    description: "Go to one of your organizations to start An Atlassian trail",
   };
-  const selectRequirement = [
-    {
-      projectName: "Jira",
-      organizationName: params.type,
-    },
-    {
-      projectName: "Clickup",
-      organizationName: params.type,
-    },
-  ];
+  const { orgList } = useSelector((state) => state.orgList);
+
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(fetchOrgs());
+  // });
+
   return (
     <Layout>
       <ListSelection
-        selectRequirement={selectRequirement}
+        selectRequirement={orgList}
         selectHeading={selectHeading}
       />
     </Layout>
   );
 };
-
 export default OrganizationList;

@@ -4,6 +4,7 @@ import {
   Home,
   ProjectList,
   Organization,
+  LogIn,
   Project,
   ForgetPassword,
   OrganizationList,
@@ -21,11 +22,9 @@ function App() {
       <Route path="/project/invite" element={<InviteMember />} />
       <Route path="/project" element={<Project />} />
       <Route path="/projects" element={<ProjectList />} />
-      <Route path="/forget-password" element={<ForgetPassword />} />
-      <Route
-        path="/organization-list"
-        element={<OrganizationList type="Organization" />}
-      />
+      <Route path="/organizations" element={<OrganizationList />} />
+      <Route path="/forgot-password" element={<ForgetPassword />} />
+      <Route path="/login" element={<LogIn />} />
     </Routes>
   );
 }
