@@ -1,16 +1,16 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import { InviteMember, SignUp } from "./components";
 import {
+  ConfirmPassword,
+  ForgetPassword,
   Home,
-  ProjectList,
-  Organization,
   LogIn,
+  Organization,
   Project,
   ForgetPassword,
-  OrganizationList,
   ConfirmPassword,
 } from "./pages";
-import { SignUp, InviteMember } from "./components";
 
 function App() {
   return (
