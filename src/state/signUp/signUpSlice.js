@@ -5,7 +5,7 @@ export const createSignUp = createAsyncThunk(
   "/signup",
   async (data, { rejectWithValue }) => {
     try {
-      const response = await publicPost("/signup", data);
+      const response = await publicPost("signup", data);
       if (response) {
         return response.data;
       }
