@@ -1,0 +1,47 @@
+.invite {
+  margin-top: 30px;
+  width: 100vh;
+  position: absolute;
+  left: 500px;
+}
+
+.assignee {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+}
+
+.assignee h1 {
+  font-size: xx-large;
+}
+
+.assignee button {
+  height: 40px;
+  width: 150px;
+  border-radius: 4px;
+  background: blue;
+  font-style: normal;
+  color: white;
+}
+
+.inviteForm {
+  margin-top: 30px;
+  border-radius: 3px;
+  width: 1000px;
+  height: 400px;
+  background: whitesmoke;
+  display: flex;
+}
+
+.inviteForm img {
+  margin-top: 30px;
+  height: 310px;
+  width: 600px;
+  filter: invert(31%) opacity(80%) contrast(250%) saturate(300%)
+    drop-shadow(1px 1px 1px white) hue-rotate(5deg);
+}
+
+.isMailValid {
+  display: none;
+}
