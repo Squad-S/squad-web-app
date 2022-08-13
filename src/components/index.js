@@ -5,3 +5,4 @@ export { default as Navbar } from "./Navber";
 export { default as SignUp } from "./SignUp";
 export { default as InviteMember } from "./InviteMemberProject";
 export { default as Form } from "./Form";
+export { default as Loader } from "./Loader";
