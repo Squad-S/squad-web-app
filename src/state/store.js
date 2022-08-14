@@ -4,6 +4,7 @@ import { createOrganizationReducer } from "./CreateOrganization";
 import { createProjectReducer } from "./CreateProject";
 import { forgetPasswordReducer } from "./forgetPassword";
 import { inviteListProjectReducer } from "./inviteListProject";
+import { inviteMemberOrganizationReducer } from "./inviteMemberOrganization";
 import { logInReducer } from "./LogIn";
 import { confirmPasswordReducer } from "./user";
 
@@ -22,6 +23,7 @@ const rootReducer = combineReducers({
   confirmPassword: confirmPasswordReducer,
   projectInviteList: inviteListProjectReducer,
   logIn: logInReducer,
+  inviteMemberOrganization: inviteMemberOrganizationReducer,
 });
 
 const store = configureStore({
