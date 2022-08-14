@@ -21,7 +21,7 @@ export const inviteMemberOrganizationSlice = createSlice({
       .addCase(inviteMemberOrganization.pending, (state, action) => {
         state.status = STATUS.PENDNG;
       })
-      .addCase(inviteMemberOrganization.accepted, (state, action) => {
+      .addCase(inviteMemberOrganization.fulfilled, (state, action) => {
         state.data = action.payload;
         state.status = STATUS.ACCEPTED;
       })

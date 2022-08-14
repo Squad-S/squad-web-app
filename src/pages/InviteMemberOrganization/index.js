@@ -27,7 +27,11 @@ const InviteMemberOrganization = () => {
 
   const storeEmail = (e) => {
     console.log(e);
-    setEmail([...email, (e.target.name = e.target.value)]);
+    setEmail({
+      ...email,
+      [e.target.name]: e.target.value,
+    });
+
     // setEmail(existingEmails => {
     //   return [
     //     ...existingEmails.slice(0, index),
