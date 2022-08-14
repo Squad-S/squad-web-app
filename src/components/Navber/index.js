@@ -65,7 +65,7 @@ const Navbar = () => {
               <>
                 {links.map((link, index) => (
                   <div key={index}>
-                    <div className="group px-3 text-left md:cursor-pointer">
+                    <div className="group px-1 text-left md:cursor-pointer">
                       <h1
                         className="group ml-2 flex items-center justify-between py-7 pr-5 text-sm font-bold uppercase text-gray-600 md:pr-0"
                         onClick={() => {
@@ -131,13 +131,29 @@ const Navbar = () => {
               </>
               <button
                 type="button"
-                className="mt-6 mr-2 mb-2 ml-2 h-9 rounded-lg bg-blue-700 px-5 py-1 text-sm font-medium uppercase text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                className="mt-6 mr-2 mb-2 ml-2 h-9 rounded-lg bg-blue-700 px-3 py-1 text-sm font-medium uppercase text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               >
                 Create
               </button>
+              <NavLink to="/login">
+                <button
+                  type="button"
+                  className="mt-6 mr-2 mb-2 ml-1 h-9 rounded-lg bg-orange-400 px-3 py-1 text-sm font-medium uppercase text-white hover:bg-orange-500 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-orange-400 dark:hover:bg-orange-500 dark:focus:ring-blue-800"
+                >
+                  Signin
+                </button>
+              </NavLink>
+              <NavLink to="/signup">
+                <button
+                  type="button"
+                  className="mt-6 mr-2 mb-2 ml-1 h-9 rounded-lg bg-orange-400 px-3 py-1 text-sm font-medium uppercase text-white hover:bg-orange-500 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-orange-400 dark:hover:bg-orange-500 dark:focus:ring-blue-800"
+                >
+                  Signup
+                </button>
+              </NavLink>
             </div>
             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-              <HelpIcon className="mr-2 rounded-full bg-gray-100" />
+              <HelpIcon className="mr-2 ml-6 rounded-full bg-gray-100" />
               <AccountCircleSharpIcon className="mr-2 rounded-full bg-orange-400" />
             </div>
           </div>
