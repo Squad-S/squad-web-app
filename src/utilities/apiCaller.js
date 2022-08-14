@@ -4,7 +4,6 @@ import { api } from "../configs";
 const config = {
   headers: {
     "Content-Type": "application/json",
-    userId: "62ed23905a156bc321813c99",
   },
 };
 
@@ -25,7 +24,7 @@ export const privateGet = async (endpoint, token) => {
 };
 
 export const privatePost = async (endpoint, token, body) => {
-  config.headers.Authorization = `Bearer ${token}`;
+  config.headers.Authorization = `${token}`;
   const response = await axios.post(`${api}${endpoint}`, body, config);
   return response.data;
 };

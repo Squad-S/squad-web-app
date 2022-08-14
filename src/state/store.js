@@ -6,6 +6,7 @@ import { forgetPasswordReducer } from "./forgetPassword";
 import { inviteListProjectReducer } from "./inviteListProject";
 import { confirmPasswordReducer } from "./user";
 import { logInReducer } from "./LogIn";
+import { signUpReducer } from "./signUp";
 import {
   persistStore,
   persistReducer,
@@ -39,6 +40,7 @@ const rootReducer = combineReducers({
   confirmPassword: confirmPasswordReducer,
   projectInviteList: inviteListProjectReducer,
   logIn: persistedReducer,
+  signUp: signUpReducer,
 });
 
 export const store = configureStore({
