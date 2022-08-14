@@ -3,10 +3,13 @@ import { api } from "../../configs";
 import { privatePut } from "../../utilities";
 export const updateInviteProject = createAsyncThunk(
   "updateInviteProjectSlice/updateInviteProject",
-  async (data, { rejectWithValue }) => {
+  async (data, { rejectWithValue, getState }) => {
     try {
+      const state = getState();
+      const { token } = state?.logIn?.userLogin || {};
       const response = await privatePut(
         `${api}/project/invite/${data.inviteId}`,
+        token,
         data
       );
       return response;

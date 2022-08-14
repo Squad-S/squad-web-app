@@ -1,15 +1,15 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import { InviteMember, SignUp } from "./components";
 import {
-  Home,
-  ProjectList,
-  Organization,
-  LogIn,
-  Project,
-  ForgetPassword,
   ConfirmPassword,
+  ForgetPassword,
+  Home,
+  LogIn,
+  Organization,
+  Project,
+  ProjectList,
 } from "./pages";
-import { SignUp, InviteMember } from "./components";
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
       <Route path="/organization" element={<Organization />} />
       <Route path="/signup" element={<SignUp />} />
       <Route path="/confirm-password" element={<ConfirmPassword />} />
-      <Route path="/project/invite" element={<InviteMember />} />
+      <Route path="/project/invite/:projectId" element={<InviteMember />} />
       <Route path="/project" element={<Project />} />
       <Route path="/projects" element={<ProjectList />} />
       <Route path="/login" element={<LogIn />} />

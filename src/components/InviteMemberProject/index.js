@@ -19,7 +19,7 @@ import {
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { Form } from "..";
 import { deleteInviteProject } from "../../state/inviteListProject/deleteInviteProjectSlice";
 import { inviteListProject } from "../../state/inviteListProject/inviteListProjectSlice";
@@ -30,6 +30,7 @@ const inviteImg = "/asset/img/inviteImg.jpg";
 const InvaiteMemberProject = () => {
   const [email, setEmail] = useState(null);
   const dispatch = useDispatch();
+  const { projectId } = useParams();
   const projectInviteList = useSelector((state) => state.projectInviteList);
 
   const { users } = projectInviteList;
@@ -48,13 +49,14 @@ const InvaiteMemberProject = () => {
     const data = {
       status: user.status,
       inviteId: user._id,
+      projectId,
     };
     dispatch(updateInviteProject(data));
   };
 
   useEffect(() => {
-    dispatch(inviteListProject());
-  }, [dispatch]);
+    dispatch(inviteListProject(projectId));
+  }, [dispatch, projectId]);
   return (
     <Container className=" my-2">
       <section style={{ display: "flex", margin: "15px 15px" }}>
