@@ -7,6 +7,7 @@ import { inviteListProjectReducer } from "./inviteListProject";
 import { confirmPasswordReducer } from "./user";
 import { logInReducer } from "./LogIn";
 import { orgListReducer } from "./orgList";
+import { signUpReducer } from "./signUp";
 
 const middlewares = [];
 if (process.env.NODE_ENV === "development") {
@@ -23,6 +24,7 @@ const rootReducer = combineReducers({
   projectInviteList: inviteListProjectReducer,
   logIn: logInReducer,
   orgList: orgListReducer,
+  signUp: signUpReducer,
 });
 
 const store = configureStore({
