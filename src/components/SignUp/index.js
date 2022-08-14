@@ -9,9 +9,9 @@ const signUpImg = "/asset/img/signUp-img.png";
 const logo = "/asset/img/logo.png";
 
 const SignUp = () => {
-  const [email, setEmail] = useState(null);
-  const [name, setName] = useState(null);
-  const [password, setPassword] = useState(null);
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
   const dispatch = useDispatch();
   let navigate = useNavigate();
 

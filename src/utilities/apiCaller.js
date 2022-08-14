@@ -18,19 +18,19 @@ export const publicPost = async (endpoint, body) => {
 };
 
 export const privateGet = async (endpoint, token) => {
-  config.headers.Authorization = `Bearer ${token}`;
+  config.headers.token = `${token}`;
   const response = await axios.get(`${api}${endpoint}`, config);
   return response.data;
 };
 
 export const privatePost = async (endpoint, token, body) => {
-  config.headers.Authorization = `${token}`;
+  config.headers.token = `${token}`;
   const response = await axios.post(`${api}${endpoint}`, body, config);
   return response.data;
 };
 
 export const privatePut = async (endpoint, token, body) => {
-  config.headers.Authorization = `Bearer ${token}`;
+  config.headers.token = `${token}`;
   const response = await axios.put(`${api}${endpoint}`, body, config);
   return response.data;
 };
