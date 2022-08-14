@@ -2,6 +2,7 @@ import BusinessIcon from "@mui/icons-material/Business";
 import { useNavigate } from "react-router-dom";
 
 const ListSelection = ({ selectRequirement, selectHeading }) => {
+  console.log(selectRequirement);
   const navigate = useNavigate();
   const handleCreate = () => {
     if (selectHeading.heading === "project") {
@@ -24,13 +25,6 @@ const ListSelection = ({ selectRequirement, selectHeading }) => {
       navigate("/organization/${id}");
     }
   };
-  const titleName = (items) => {
-    if (selectHeading.heading === "project") {
-      return items.projectName;
-    } else {
-      return items.organizationName;
-    }
-  };
 
   return (
     <div className="mt-16">
@@ -51,7 +45,7 @@ const ListSelection = ({ selectRequirement, selectHeading }) => {
 
                 <div className="">
                   <p className="mb-0 text-sm font-semibold text-gray-700">
-                    {titleName(items)}
+                    {items.name}
                   </p>
                   <p className=" text-xs font-bold text-gray-400">
                     {selectHeading.heading}

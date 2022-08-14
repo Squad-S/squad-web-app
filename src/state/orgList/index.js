@@ -1,1 +1,1 @@
-export { default as orgListReducer } from "./orgListSlice";
+export { default as orgListReducer } from "./reducer";

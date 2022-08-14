@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createOrganization } from "../../state/CreateOrganization/action";
 import { Layout, CreateBlock } from "../../components";
@@ -7,7 +7,7 @@ const Organization = () => {
   const dispatch = useDispatch();
   const { data, status } = useSelector((state) => state.organization);
   const [organizationName, setOrganizationName] = useState("");
-
+  const [formReadyToSubmit, setFormReadyToSubmit] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(createOrganization(organizationName));
@@ -17,7 +17,12 @@ const Organization = () => {
     setOrganizationName(e.target.value);
   };
 
-  const title = "Organization name";
+  useEffect(() => {
+    const value = organizationName ? true : false;
+    setFormReadyToSubmit(value);
+  }, [organizationName]);
+
+  const title = "Create organization";
   const description =
     "Your organization represents your company and lets you manage users, security settings across multiple sites and products.";
   const inputs = [
@@ -39,7 +44,9 @@ const Organization = () => {
     buttonName: "Create",
     props: {
       type: "submit",
+      disabled: !formReadyToSubmit,
     },
+    formReadyToSubmit,
   };
   const form = {
     method: "post",
