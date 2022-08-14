@@ -16,7 +16,7 @@ const Project = () => {
     console.log(data);
   };
 
-  const onChangeProject = (e) => {
+  const onChangePro = (e) => {
     setProjectName(e.target.value);
   };
   useEffect(() => {
@@ -43,7 +43,7 @@ const Project = () => {
         name: "projectName",
         required: "required",
         value: projectName,
-        onChange: onChangeProject,
+        onChange: onChangePro,
       },
     },
   ];
