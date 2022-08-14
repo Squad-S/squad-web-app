@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { CreateBlock, Layout } from "../../components";
 import { createProject } from "../../state/CreateProject/action";
@@ -8,6 +8,7 @@ const Project = () => {
   const dispatch = useDispatch();
   const { data, status } = useSelector((state) => state.project);
   const [projectName, setProjectName] = useState("");
+  const [formReadyToSubmit, setFormReadyToSubmit] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,6 +19,10 @@ const Project = () => {
   const onChangeProject = (e) => {
     setProjectName(e.target.value);
   };
+  useEffect(() => {
+    const isFormReady = projectName ? true : false;
+    setFormReadyToSubmit(isFormReady);
+  }, [projectName]);
 
   const form = {
     method: "post",
@@ -26,7 +31,7 @@ const Project = () => {
 
   const title = "Create Project Page";
   const description =
-    "Your organization represents your company and lets you manage users, security settings across multiple sites and Projects.";
+    "Your project represents your company and lets you manage users, security settings across multiple sites and Projects.";
   const inputs = [
     {
       lavel: "Create Project",
@@ -35,7 +40,7 @@ const Project = () => {
         id: 1,
         placeholder: "Software name",
         type: "text",
-        name: "projectname",
+        name: "projectName",
         required: "required",
         value: projectName,
         onChange: onChangeProject,
@@ -47,8 +52,11 @@ const Project = () => {
     buttonName: "Create",
     props: {
       type: "submit",
+      disabled: !formReadyToSubmit,
     },
+    formReadyToSubmit,
   };
+
   if (status === "loading") {
     return (
       <div className="text-center">
