@@ -6,7 +6,7 @@ import { forgetPasswordReducer } from "./forgetPassword";
 import { inviteListProjectReducer } from "./inviteListProject";
 import { confirmPasswordReducer } from "./user";
 import { logInReducer } from "./LogIn";
-
+import { signUpReducer } from "./signUp";
 const middlewares = [];
 if (process.env.NODE_ENV === "development") {
   const { logger } = require("redux-logger");
@@ -21,7 +21,7 @@ const rootReducer = combineReducers({
   confirmPassword: confirmPasswordReducer,
   projectInviteList: inviteListProjectReducer,
   logIn: logInReducer,
-
+  signUp: signUpReducer,
 });
 
 const store = configureStore({
