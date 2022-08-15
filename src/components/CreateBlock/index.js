@@ -44,7 +44,7 @@ export default function CreateBlock({
 }) {
   return (
     <div className="m-auto w-full max-w-xs pt-20">
-      <h1 className=" text-3xl font-bold text-slate-900">{title}</h1>
+      <h1 className=" text-3xl font-bold text-slate-700">{title}</h1>
       <p className="py-3 text-slate-700">{description}</p>
       <form {...form}>
         {inputs.map((inp) => {
@@ -63,7 +63,9 @@ export default function CreateBlock({
         })}
 
         <button
-          className=" focus:shadow-outline mt-4 rounded bg-slate-100 py-2 px-4 font-bold text-gray-500 hover:bg-slate-200 focus:outline-none"
+          className={`focus:shadow-outline mt-4 rounded  ${
+            button.formReadyToSubmit ? "bg-blue-700 text-white" : "bg-slate-100"
+          } py-2 px-4 font-bold text-gray-500 focus:outline-none`}
           {...button.props}
         >
           {button.buttonName}

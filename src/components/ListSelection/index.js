@@ -24,13 +24,13 @@ const ListSelection = ({ selectRequirement, selectHeading }) => {
       navigate("/organization/id");
     }
   };
-  const titleName = (items) => {
-    if (selectHeading.heading === "project") {
-      return items.projectName;
-    } else {
-      return items.organizationName;
-    }
-  };
+  // const titleName = (items) => {
+  //   if (selectHeading.heading === "project") {
+  //     return items.projectName;
+  //   } else {
+  //     return items.organizationName;
+  //   }
+  // };
 
   return (
     <div className="mt-16">
@@ -51,16 +51,16 @@ const ListSelection = ({ selectRequirement, selectHeading }) => {
 
                 <div className="">
                   <p className="mb-0 text-sm font-semibold text-gray-700">
+                    {items.data.name}
+                  </p>
+                  <p className=" text-xs font-bold text-gray-400">
+                    {items.data.organization.name}
+                  </p>
+                  {/* <p className="mb-0 text-sm font-semibold text-gray-700">
                     {titleName(items)}
                   </p>
                   <p className=" text-xs font-bold text-gray-400">
                     {selectHeading.heading}
-                  </p>
-                  {/* <p className="mb-0 text-sm font-semibold text-gray-700">
-                    {items.username}
-                  </p>
-                  <p className=" text-xs font-bold text-gray-400">
-                    {items.name}
                   </p> */}
                 </div>
               </div>

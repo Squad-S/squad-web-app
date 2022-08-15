@@ -1,26 +1,26 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
-import { publicGet } from "../../utilities";
+// import axios from "axios";
+import { privateGet } from "../../utilities";
 
 export const fetchProjects = createAsyncThunk(
   "projectList/fetchProjects",
   async () => {
     try {
-      // const response = await publicGet("/users");
-      const response = await axios.get(
-        "https://jsonplaceholder.typicode.com/users"
-      );
+      const token =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlNodXZvIiwidXNlcklkIjoiNjJkZTE3OWMzZGFkNjgyNjk4ZGVhYjQxIiwiaWF0IjoxNjYwMjc1NTMxfQ.o1KAlw-fQhJOogd3-zh_gEpKka9k81rtpPc_THkxzUc";
 
+      const response = await privateGet("project", token);
+
+      // const response = await axios.get(
+      //   "https://jsonplaceholder.typicode.com/users"
+      // );
       return response.data;
     } catch (err) {
       return err;
     }
   }
 );
-// export const deleteProject =  () => {
-//   const delResponse = await publicDelete("/users");
-// }
 
 export const projectListSlice = createSlice({
   name: "projectList",
