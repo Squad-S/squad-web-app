@@ -15,7 +15,7 @@ const ProjectList = () => {
   useEffect(() => {
     dispatch(fetchProjects());
     console.log("dispatched response is : \n", projectList);
-  });
+  }, []);
   console.log("Gotten projectlist is : \n", projectList);
 
   return (

@@ -4,13 +4,17 @@ import { privateGet } from "../../utilities";
 
 export const fetchProjects = createAsyncThunk(
   "projectList/fetchProjects",
-  async ({ rejectWithValue, getState }) => {
+  async ({}, { rejectWithValue, getState }) => {
     try {
       const state = getState();
+      console.log({ state });
       const { token } = state?.logIn?.userLogin || {};
+      console.log({ token });
       const response = await privateGet("project", token);
+      console.log({ response });
       return response.data;
     } catch (err) {
+      console.log({ err });
       return rejectWithValue(err);
     }
   }
