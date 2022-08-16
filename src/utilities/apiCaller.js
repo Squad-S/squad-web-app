@@ -8,7 +8,6 @@ const config = {
 };
 
 export const publicGet = async (endpoint) => {
-  // const response = await axios.get(`${api}${endpoint}`, config);
   const response = await axios.get(`${api}${endpoint}`);
   return response.data;
 };
@@ -19,8 +18,10 @@ export const publicPost = async (endpoint, body) => {
 };
 
 export const privateGet = async (endpoint, token) => {
+  console.log(endpoint, token);
   config.headers.token = `${token}`;
   const response = await axios.get(`${api}${endpoint}`, config);
+  console.log("Response is \n", response);
   return response.data;
 };
 

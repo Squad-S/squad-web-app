@@ -1,23 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-// import axios from "axios";
 import { privateGet } from "../../utilities";
 
 export const fetchProjects = createAsyncThunk(
   "projectList/fetchProjects",
-  async () => {
+  async ({ rejectWithValue, getState }) => {
     try {
-      const token =
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlNodXZvIiwidXNlcklkIjoiNjJkZTE3OWMzZGFkNjgyNjk4ZGVhYjQxIiwiaWF0IjoxNjYwMjc1NTMxfQ.o1KAlw-fQhJOogd3-zh_gEpKka9k81rtpPc_THkxzUc";
-
+      const state = getState();
+      const { token } = state?.logIn?.userLogin || {};
       const response = await privateGet("project", token);
-
-      // const response = await axios.get(
-      //   "https://jsonplaceholder.typicode.com/users"
-      // );
       return response.data;
     } catch (err) {
-      return err;
+      return rejectWithValue(err);
     }
   }
 );
@@ -26,20 +20,7 @@ export const projectListSlice = createSlice({
   name: "projectList",
   initialState: {
     isLoading: false,
-    projectList: [
-      {
-        projectName: "Jira",
-        organizationName: "Atlassian",
-      },
-      {
-        projectName: "Google Map",
-        organizationName: "Google LLC",
-      },
-      {
-        projectName: "Teams",
-        organizationName: "Microsoft Teams",
-      },
-    ],
+    projectList: [],
     error: null,
   },
   extraReducers: (builder) => {

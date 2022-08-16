@@ -11,13 +11,12 @@ const ProjectList = () => {
   const { projectList } = useSelector((state) => state.projectList);
 
   const dispatch = useDispatch();
-  // dispatch(fetchProjects());
 
   useEffect(() => {
     dispatch(fetchProjects());
-    console.log("response is : \n");
-    console.log(projectList);
+    console.log("dispatched response is : \n", projectList);
   });
+  console.log("Gotten projectlist is : \n", projectList);
 
   return (
     <Layout>

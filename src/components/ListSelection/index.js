@@ -12,26 +12,26 @@ const ListSelection = ({ selectRequirement, selectHeading }) => {
   };
   const handleSelect = (id) => {
     if (selectHeading.heading === "project") {
-      navigate("/project/id");
+      navigate(`/project/${id}`);
     } else {
-      navigate("/organization/id");
+      navigate(`/organization/${id}`);
     }
   };
   const handlDelete = (id) => {
     if (selectHeading.heading === "project") {
-      navigate("/project/id");
+      navigate(`/project/${id}`);
     } else {
-      navigate("/organization/id");
+      navigate(`/organization/${id}`);
     }
   };
-  // const titleName = (items) => {
-  //   if (selectHeading.heading === "project") {
-  //     return items.projectName;
-  //   } else {
-  //     return items.organizationName;
-  //   }
-  // };
-
+  const titleName = (items) => {
+    if (selectHeading.heading === "project") {
+      return items.name;
+    } else {
+      return items.organization.name;
+    }
+  };
+  console.log("Select req :\n", selectRequirement);
   return (
     <div className="mt-16">
       <h2 className="mb-1 text-center text-2xl font-bold text-gray-700">
@@ -48,20 +48,14 @@ const ListSelection = ({ selectRequirement, selectHeading }) => {
                 <span className="mr-2 h-8 w-8 rounded bg-gray-700 text-center ">
                   <BusinessIcon className="m-1 text-white" />
                 </span>
-
+                {console.log("Items are : \n", items)}
                 <div className="">
                   <p className="mb-0 text-sm font-semibold text-gray-700">
-                    {items.data.name}
-                  </p>
-                  <p className=" text-xs font-bold text-gray-400">
-                    {items.data.organization.name}
-                  </p>
-                  {/* <p className="mb-0 text-sm font-semibold text-gray-700">
                     {titleName(items)}
                   </p>
                   <p className=" text-xs font-bold text-gray-400">
                     {selectHeading.heading}
-                  </p> */}
+                  </p>
                 </div>
               </div>
               <div className="flex justify-between">
